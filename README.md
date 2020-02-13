@@ -1,3 +1,12 @@
+AI-powered assault detection and recognition
+
+
+| AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal activity                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/assault1.gif) | ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/walking.gif)|
+
+
+
 This repository currently implemented the CPM and Hourglass model using TensorFlow. Instead of normal convolution, inverted residuals (also known as Mobilenet V2) module has been used inside the model for **real-time** inference. 
 
 
@@ -40,10 +49,6 @@ The respository contains:
 
 Below GIF is the performance of Android and iOS
 
-
-| Android Mi Mix2s (~60 FPS)                                   | iPhone X (~30 FPS)                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![image](https://github.com/edvardHua/PoseEstimationForMobile/raw/master/images/demo.gif) | ![image](https://github.com/edvardHua/PoseEstimationForMobile/raw/master/images/demo_ios.gif)|
 
 
 You can download the apk as below to test on your device.
