@@ -18,7 +18,7 @@ The respository contains:
 * iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
 
 ## Hardware 
-![alt text][image_1]
+![alt text]([image_1]= 250x250)
 
 
 ## Training
