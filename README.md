@@ -65,6 +65,8 @@ Warping
 ## Reference
 
 ***
+Dataset: https://www.dropbox.com/s/0jp57lhs0y805ro/sports-type-classifier-data.7z?dl=0
+
 Original Pyimagesearch tutorial on Keras video classification: https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/
 
 Configuring Jetson Nano: https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
@@ -73,7 +75,11 @@ Increasing swap memory and installing Jetcam: https://thenewstack.io/tutorial-co
 
 Install Opencv on Nano: https://pythops.com/post/compile-deeplearning-libraries-for-jetson-nano
 
-Dataset: https://www.dropbox.com/s/0jp57lhs0y805ro/sports-type-classifier-data.7z?dl=0
+Nano case: https://www.amazon.com/gp/product/B07ZNVH982/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1
+
+CSI cam: https://www.amazon.com/gp/product/B07VFFRX4C/ref=ppx_yo_dt_b_asin_title_o03_s01?ie=UTF8&psc=1
+
+USB cam: https://bluerobotics.com/store/sensors-sonars-cameras/cameras/cam-usb-low-light-r1/
 
 ## License
 
