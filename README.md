@@ -21,6 +21,11 @@ The respository contains:
 * A label pickle
 * An install script for systemd startup service for the AIDR application
 
+Usage
+python predict_camera.py --model model/activity.model --input example_clips/assault.mp4 --label-bin model/lb.pickle --output output/assault.avi --size 100 
+
+Boolean flags inside predict_camera.py can be adjusted to input from video, record new training/test data and to record inferenced video.
+
 ## Hardware 
 Jetson Nano and either csi or usb camera:
 
@@ -61,13 +66,16 @@ Lighting
 Zooming
 Warping
 
+## Future Improvements
+* Dataset collection from dash mounted standalone unit
+* Improve power performance
 
 ## Reference
 
 ***
 Dataset: https://www.dropbox.com/s/0jp57lhs0y805ro/sports-type-classifier-data.7z?dl=0
 
-Original Pyimagesearch tutorial on Keras video classification: https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/
+Tutorial on Keras video classification: https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/
 
 Configuring Jetson Nano: https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
 
