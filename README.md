@@ -60,7 +60,7 @@ The respository contains:
 
 * Python3
 * TensorFlow >= 1.4
-* Mace
+* Opencv
 
 ### Dataset:
 
@@ -178,195 +178,18 @@ python3 src/benchmark.py --frozen_pb_path=hourglass/model-360000.pb \
 ```
 
 
-### Pretain model
-
-CPM
-
-* [Frozen graph](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/cpm_model)
-* [TFlite](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/cpm_model)
-* [CoreML](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/cpm_model)
-
-Hourglass
-
-* [Frozen graph](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/hourglass_model)
-* [TFlite](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/hourglass_model)
-* [CoreML](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/release/hourglass_model)
-
-## Android Demo
-
-***
-
-Thanks to mace framework, now you can using GPU to run this model on android smartphone.
-
-Following command can transfer model into mace format.
-
-```bash
-cd <your-mace-path>
-# You transer hourglass or cpm model by changing `yml` file.
-python tools/converter.py convert --config=<PoseEstimationForMobilePath>/release/mace_ymls/cpm.yml
-```
-
-Then follow the instruction of [mace-0.9 documentation](https://mace.readthedocs.io/en/v0.9.0/) to integrate into android.
-
-For how to invoke the model and parsing output, you can check the [android source code](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/android_demo) i provided.
-
-The benchmark of some socs for average inference time are shown as follow.
-
-Model | Snapdragon 845 | Snapdragon 660 | Hisilicon 960 | Exynos 7420 
----- | --- | --- | --- | --- 
-CPM & Hourglass | 17 ms | 30 ms | 42 ms | 103 ms 
-
-Below is the environments i build this demo.
-
-- Operation System: `macOS 10.13.6` (mace not support build under windows now)
-- Android Studio: `3.0.1`
-- NDK Version: `r16`
-- Mace Version: `0.9.0`
-
-**Different environments may encounter different error when you build mace-demo. To avoid this, i suggest using docker.**
-
-```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/xiaomimace/mace-dev-lite
-
-docker run -it
-	--privileged -d --name mace-dev 
-	--net=host 
-	-v to/you/path/PoseEstimationForMobile/android_demo/demo_mace:/demo_mace 
-	registry.cn-hangzhou.aliyuncs.com/xiaomimace/mace-dev-lite
-
-docker run -it --privileged -d --name mace-dev --net=host \
-           -v to/you/path/PoseEstimationForMobile/android_demo/demo_mace:/demo_mace  \
-           registry.cn-hangzhou.aliyuncs.com/xiaomimace/mace-dev-lite
-
-# Enter to docker
-docker exec -it mace-dev bash
-
-# Exec command inside the docker
-cd /demo_mace && ./gradlew build
-
-```
-
-***
-
-
-Or you can transfer the model into tflite.
-
-```bash
-# Convert to frozen pb.
-cd training
-python3 src/gen_frozen_pb.py \
---checkpoint=<you_training_model_path>/model-xxx --output_graph=<you_output_model_path>/model-xxx.pb \
---size=192 --model=mv2_cpm_2
-
-# If you update tensorflow to 1.9, run following command.
-python3 src/gen_tflite_coreml.py \
---frozen_pb=forzen_graph.pb \
---input_node_name='image' \
---output_node_name='Convolutional_Pose_Machine/stage_5_out' \
---output_path='./' \
---type=tflite
- 
-# Convert to tflite.
-# See https://github.com/tensorflow/tensorflow/blob/master/tensorflow/docs_src/mobile/tflite/devguide.md for more information.
-bazel-bin/tensorflow/contrib/lite/toco/toco \
---input_file=<you_output_model_path>/model-xxx.pb \
---output_file=<you_output_tflite_model_path>/mv2-cpm.tflite \
---input_format=TENSORFLOW_GRAPHDEF --output_format=TFLITE \
---inference_type=FLOAT \
---input_shape="1,192,192,3" \
---input_array='image' \
---output_array='Convolutional_Pose_Machine/stage_5_out'
-
-```
-
-Then, place the tflite file in `android_demo/app/src/main/assets` and modify the parameters in `ImageClassifierFloatInception.kt`.
-
-```java
-......
-......
-    // parameters need to modify in ImageClassifierFloatInception.kt
-    /**
-     * Create ImageClassifierFloatInception instance
-     *
-     * @param imageSizeX Get the image size along the x axis.
-     * @param imageSizeY Get the image size along the y axis.
-     * @param outputW The output width of model
-     * @param outputH The output height of model
-     * @param modelPath Get the name of the model file stored in Assets.
-     * @param numBytesPerChannel Get the number of bytes that is used to store a single
-     * color channel value.
-     */
-    fun create(
-      activity: Activity,
-      imageSizeX: Int = 192,
-      imageSizeY: Int = 192,
-      outputW: Int = 96,
-      outputH: Int = 96,
-      modelPath: String = "mv2-cpm.tflite",
-      numBytesPerChannel: Int = 4
-    ): ImageClassifierFloatInception =
-      ImageClassifierFloatInception(
-          activity,
-          imageSizeX,
-          imageSizeY,
-          outputW,
-          outputH,
-          modelPath,
-          numBytesPerChannel)
-......
-......
-```
-
-Finally, import the project to `Android Studio` and run in you smartphone.
-
-## iOS Demo
-
-***
-
-Thanks to [tucan](https://github.com/tucan9389), now you can run model on iOS.
-
-First, convert model into CoreML model.
-
-```bash
-# Convert to frozen pb.
-cd training
-python3 src/gen_frozen_pb.py \
---checkpoint=<you_training_model_path>/model-xxx --output_graph=<you_output_model_path>/model-xxx.pb \
---size=192 --model=mv2_cpm_2
-
-# Run the following command to get mlmodel
-python3 src/gen_tflite_coreml.py \
---frozen_pb=forzen_graph.pb \
---input_node_name='image' \
---output_node_name='Convolutional_Pose_Machine/stage_5_out' \
---output_path='./' \
---type=coreml
-```
-
-Then, follow the instruction on [PoseEstimation-CoreML](https://github.com/tucan9389/PoseEstimation-CoreML).
-
-The benchmark of some socs for average inference time are shown as follow.
-
-Model           | iPhone XS Max | iPhone XS | iPhone X | iPhone 8 Plus | iPhone 8
---------------- | ------------- | --------- | -------- | ------------- | --------
-CPM & Hourglass | 17 ms         | 16 ms     | 69 ms    | 64 ms         | 42 ms    
-
-Model           | iPhone 7 | iPad Pro<br>(10.5-inch) | iPhone SE | iPad<br>(5th) | iPhone 6 Plus
---------------- | -------- | ------------------- | --------- | ---------- | -------------
-CPM & Hourglass | 74 ms    | 41 ms               | 103 ms    | 118 ms     | 331 ms
 
 
 ## Reference
 
 ***
+Original Pyimagesearch tutorial on Keras video classification: https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/
 
-[1] [Paper of Convolutional Pose Machines](https://arxiv.org/abs/1602.00134) <br/>
-[2] [Paper of Stack Hourglass](https://arxiv.org/abs/1603.06937) <br/>
-[3] [Paper of MobileNet V2](https://arxiv.org/pdf/1801.04381.pdf) <br/>
-[4] [Repository PoseEstimation-CoreML](https://github.com/tucan9389/PoseEstimation-CoreML) <br/>
-[5] [Repository of tf-pose-estimation](https://github.com/ildoonet/tf-pose-estimation) <br>
-[6] [Devlope guide of TensorFlow Lite](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/docs_src/mobile/tflite) <br/>
-[7] [Mace documentation](https://mace.readthedocs.io)
+Configuring Jetson Nano: https://www.pyimagesearch.com/2019/05/06/getting-started-with-the-nvidia-jetson-nano/
+
+Increasing swap memory and installing Jetcam: https://thenewstack.io/tutorial-configure-nvidia-jetson-nano-as-an-ai-testbed/
+
+Install Opencv on Nano: https://pythops.com/post/compile-deeplearning-libraries-for-jetson-nano
 
 ## License
 
