@@ -1,7 +1,7 @@
 [image_1]: ./images/IMG_6120.JPG
 [image_2]: ./images/IMG_6119.JPG
 
-# AI-powered Assault Interdiction Detection and Recognition (AIDR)
+# AIDR: AI-powered Assault Interdiction Detection and Recognition 
 
 
 | AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal Activity Detected                          |
