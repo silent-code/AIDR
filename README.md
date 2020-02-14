@@ -1,4 +1,4 @@
-
+[image_1]: ./images/IMG_6120.JPG
 # AI-powered Assault Interdiction Detection and Recognition (AIDR)
 
 
@@ -18,7 +18,7 @@ The respository contains:
 * iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
 
 ## Hardware 
-![alt text][image_1]: ./images/IMG_6120.JPG
+![alt text][image_1]
 
 
 ## Training
