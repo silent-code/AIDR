@@ -1,4 +1,3 @@
-[image_1]: ./images/IMG_6120.JPG
 
 # AI-powered Assault Interdiction Detection and Recognition (AIDR)
 
@@ -12,37 +11,6 @@
 This repository currently implemented the CPM and Hourglass model using TensorFlow. Instead of normal convolution, inverted residuals (also known as Mobilenet V2) module has been used inside the model for **real-time** inference. 
 
 
-<table>
-
-  <tr>
-    <td>Model</td>
-    <td>FLOPs</td>
-    <td>PCKh</td>
-    <td>Inference Time</td>
-  </tr>
-
-  <tr>
-	<td>CPM</td>
-	<td>0.5G</td>
-	<td>93.78</td>
-	<td rowspan="2">
-	~60 FPS on Snapdragon 845 <br/>
-	~60 FPS on iPhone XS (need more test)
-	</td>
-  </tr>
-
-  <tr>
-	<td>Hourglass</td>
-	<td>0.5G</td>
-	<td>91.81</td>
-  </tr>
-</table>
-
-> You can modify the [architectures](https://github.com/edvardHua/PoseEstimationForMobile/tree/master/training/src) of network for training much higher PCKh model.
-
-**Note: The repository only provide the baseline for mobile inference. Both model architectures (accuracy) and dataset still have a huge margin of improvement.**
-
-
 The respository contains:
 
 * Code of training cpm & hourglass model
@@ -50,7 +18,8 @@ The respository contains:
 * iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
 
 ## Hardware 
-![alt text][image_1]
+![alt text][image_1]: ./images/IMG_6120.JPG
+
 
 ## Training
 
