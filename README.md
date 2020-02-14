@@ -10,7 +10,7 @@
 
 
 
-AIDR is an edge-compute platform utilizing the Jetson Nano and Keras/Tensorflow-based automated human activity recognition to provide smart cities with ad-hoc, video based neighborhood watch services to support assault/robber-in-progress assessment, public safety, property protection, etc. The system can be implemented for example on forward- and reverse-view car cameras, with existing cctv networks or stand-alone mounted systems. Such a smart city adhoc video anaytic criminal activity monitor system addresses public privacy concerns by automating the detection and recognition of person/property assault by live monitoring video feeds, not recording video and eliminating human-in-the-loop involvement when normal activity is detected.
+AIDR is a low power, edge-compute platform utilizing the Jetson Nano and Keras/Tensorflow-based automated human activity recognition to provide smart cities with ad-hoc, video based neighborhood watch services to support assault/robber-in-progress assessment, public safety, property protection, etc. The system can be implemented for example on forward- and reverse-view car cameras, with existing cctv networks or stand-alone mounted systems. Such a smart city adhoc video anaytic criminal activity monitor system addresses public privacy concerns by automating the detection and recognition of person/property assault by live monitoring video feeds, not recording video and eliminating human-in-the-loop involvement when normal activity is detected.
 
 
 The respository contains:
@@ -27,7 +27,7 @@ Jetson Nano and either csi or usb camera:
 
 ![alt text][image_1]
 
-Example image of the AIDR mounted in forward view camera position on vehicle dash:
+Example image of the stand-alone AIDR mounted in forward view camera position on vehicle dash:
 
 ![alt text][image_2]
 
@@ -50,11 +50,11 @@ Training set: 11524
 
 Validation set: 2881
 
-**Model:
+**Pretrained Model-
 Resnet-50
 
-**Data Augmentations
-The following data augmentation has been applied to increase the no of images in the training set
+**Data Augmentations-
+The following data augmentation has been applied to increase the no of images in the training set:
 
 Flip horizontal
 Lighting
