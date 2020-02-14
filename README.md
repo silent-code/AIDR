@@ -1,7 +1,9 @@
-AI-powered assault detection and recognition
+[image_1]: ./images/IMG_6120.JPG
+
+# AI-powered Assault Interdiction Detection and Recognition (AIDR)
 
 
-| AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal activity                                     |
+| AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal Activity Detected                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/assault1.gif) | ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/walking.gif)|
 
@@ -47,18 +49,8 @@ The respository contains:
 * Android demo source code (thanks to [littleGnAl](https://github.com/littleGnAl))
 * iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
 
-Below GIF is the performance of Android and iOS
-
-
-
-You can download the apk as below to test on your device.
-
-| Using Mace (Support GPU) | Using TFlite (Only CPU) |
-| --- | --- |
-| [PoseEstimation-Mace.apk](https://raw.githubusercontent.com/edvardHua/PoseEstimationForMobile/master/release/PoseEstimation-Mace.apk) | [PoseEstimation-TFlite.apk](https://raw.githubusercontent.com/edvardHua/PoseEstimationForMobile/master/release/PoseEstimation-TFlite.apk) |
-
-
-> Issue and PR are welcome when you come across any problem.
+## Hardware 
+![alt text][image_1]
 
 ## Training
 
