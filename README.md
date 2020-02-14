@@ -2,7 +2,7 @@
 [image_2]: ./images/IMG_6119.JPG
 
 # AIDR: AI-powered Assault Interdiction Detection and Recognition 
-
+## Edge-Compute for Safe Smart Cities
 
 | AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal Activity Detected                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
