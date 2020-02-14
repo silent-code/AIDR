@@ -21,7 +21,7 @@ The respository contains:
 Jetson Nano and either csi or usb camera
 
 
-![](https://github.com/silent-code/AIDR/blob/master/images/IMG_6120.JPG =250x250)
+![image](https://github.com/silent-code/AIDR/blob/master/images/IMG_6120.JPG =250x250)
 
 
 ## Training
