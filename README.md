@@ -1,5 +1,5 @@
 [image_1]: ./images/IMG_6120.JPG
-[image_1]: ./images/IMG_6119.JPG
+[image_2]: ./images/IMG_6119.JPG
 
 # AI-powered Assault Interdiction Detection and Recognition (AIDR)
 
@@ -18,16 +18,16 @@ The respository contains:
 * Code for training (train.py) and inferencing (predict_camera.py) on the Jetson Nano
 * Example video clips to use for inferencing source
 * A serialized model trained on the sports activity dataset
-* A serialized label file
+* A label pickle
 * An install script for systemd startup service for the AIDR application
 
 ## Hardware 
-Jetson Nano and either csi or usb camera
+Jetson Nano and either csi or usb camera:
 
 
 ![alt text][image_1]
 
-Example image of the AIDR mounted in forward view camera position on vehicle dash
+Example image of the AIDR mounted in forward view camera position on vehicle dash:
 
 ![alt text][image_2]
 
@@ -41,19 +41,19 @@ Example image of the AIDR mounted in forward view camera position on vehicle das
 
 ## Training 
 
-***### Dataset:
+***Dataset:
 
-Download link in References section below.
+Data Download link in References section below.
 
 Data Distribution
 Training set: 11524
 
 Validation set: 2881
 
-Model
+**Model:
 Resnet-50
 
-Data Augmentations
+**Data Augmentations
 The following data augmentation has been applied to increase the no of images in the training set
 
 Flip horizontal
