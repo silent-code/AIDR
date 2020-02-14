@@ -1,4 +1,6 @@
 [image_1]: ./images/IMG_6120.JPG
+[image_1]: ./images/IMG_6119.JPG
+
 # AI-powered Assault Interdiction Detection and Recognition (AIDR)
 
 
@@ -13,28 +15,33 @@ AIDR is an edge computing device utilizing the Jetson Nano and Keras/Tensorflow-
 
 The respository contains:
 
-* Code for training and inferencing on the Jetson Nano
-* 
-* iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
+* Code for training (train.py) and inferencing (predict_camera.py) on the Jetson Nano
+* Example video clips to use for inferencing source
+* A serialized model trained on the sports activity dataset
+* A serialized label file
+* An install script for systemd startup service for the AIDR application
 
 ## Hardware 
 Jetson Nano and either csi or usb camera
 
 
-![image](https://github.com/silent-code/AIDR/blob/master/images/IMG_6120.JPG =250x250)
+![alt text][image_1]
+
+Example image of the AIDR mounted in forward view camera position on vehicle dash
+
+![alt text][image_2]
 
 
-## Training
-
-***
-
-### Dependencies:
+## Critical Dependencies:
 
 * Python3
-* TensorFlow >= 1.4
-* Opencv
+* Tensorflow GPU >= 1.13.1
+* Keras > 2.3.1
+* Opencv > 4.1.0
 
-### Dataset:
+## Training 
+
+***### Dataset:
 
 Download link in References section below.
 
