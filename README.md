@@ -18,7 +18,10 @@ The respository contains:
 * iOS demo source code (thanks to [tucan](https://github.com/tucan9389))
 
 ## Hardware 
-![alt text][image_1]
+Jetson Nano and either csi or usb camera
+
+
+![](https://github.com/silent-code/AIDR/blob/master/images/IMG_6120.JPG =250x250)
 
 
 ## Training
