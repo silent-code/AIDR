@@ -4,7 +4,7 @@
 # AID-R: AI-powered Assault Interdiction Detection-Recognition 
 ## Edge-Compute Platform for Safe Smart Cities
 
-| AIDR Assault Detected on Jetson Nano (4 FPS)                                   | Normal Activity Detected                          |
+| AID-R Assault Detected on Jetson Nano (4 FPS)                                   | Normal Activity Detected                          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/assault1.gif) | ![image](https://github.com/silent-code/AIDR/blob/master/output/gifs/walking.gif)|
 
