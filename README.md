@@ -13,7 +13,7 @@
 AID-R is a low power, edge-compute platform utilizing the Jetson Nano and Keras/Tensorflow-based automated human activity recognition to provide smart cities with ad-hoc, video based neighborhood watch services to support assault/robbery-in-progress assessment, public safety, property protection, etc. The system can be implemented for example on forward- and reverse-view car cameras, with existing cctv networks or stand-alone mounted systems. Such a smart city adhoc video anaytic criminal activity monitor system addresses public privacy concerns by automating the detection and recognition of person/property assault by live monitoring video feeds, not recording video and eliminating human-in-the-loop involvement when normal activity is detected.
 
 
-The respository contains:
+The repository contains:
 
 * Code for training (train.py) and inferencing (predict_camera.py) on the Jetson Nano
 * Example video clips to use for inferencing source
